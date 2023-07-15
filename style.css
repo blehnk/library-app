@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.library {
+    width: 700px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #e2e8f0;
+
+    padding: 20px;
+}
+
+.book div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: end;
+    gap: 20px;
+}
+
+.book div span:nth-child(2) {
+    justify-self: start;
+}

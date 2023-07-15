@@ -5,9 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>library app</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Initialize</h1>   
+    <form action="">
+        <div class="form-row">
+            <label for="title">Title</label>
+            <input class="title" type="text" id="title" name="book-title">
+        </div>
+        <div class="form-row">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="book-author">
+        </div>
+        <div class="form-row">
+            <label for="pages">Number of pages</label>
+            <input type="text" id="pages" name="book-pages">
+        </div>
+        <div class="form-row">
+            <label for="read">Have you read it?</label>
+            <input type="text" id="read" name="book-read">
+        </div>
+
+        <button class ="addBook" type="submit">Add Book</button>
+    </form>
+
+    <div class="display">
+        <div class="library">
+            <div class="book">
+                <div class="title">
+                    <span><strong>Title:</strong></span>
+                    <span>G.O.T</span>
+                </div>
+                <div class="Author">
+                    <span><strong>Author:</strong></span>
+                    <span>George R.R Martin</span>
+                </div>
+                <div class="pages">
+                    <span><strong>Number of Pages:</strong></span>
+                    <span>800</span>
+                </div>
+                <div class="read">
+                    <span><strong>Did you read it?:</strong></span>
+                    <span>Yes!</span>
+                </div>
+            </div>
+            
+            <div class="book">
+                <div class="title">
+                    <span><strong>Title:</strong></span>
+                    <span>GHarry Potter</span>
+                </div>
+                <div class="Author">
+                    <span><strong>Author:</strong></span>
+                    <span>J.K Rowling</span>
+                </div>
+                <div class="pages">
+                    <span><strong>Number of Pages:</strong></span>
+                    <span>674</span>
+                </div>
+                <div class="read">
+                    <span><strong>Did you read it?:</strong></span>
+                    <span>No</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
