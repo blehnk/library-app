@@ -11,7 +11,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.book {
+.bookCard {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
@@ -21,13 +21,17 @@
     padding: 20px;
 }
 
-.book div {
+.bookCard div {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: end;
     gap: 20px;
 }
 
-.book div span:nth-child(2) {
+.bookCard div span:last-child {
     justify-self: start;
+}
+
+.block span:first-child {
+    font-weight: 700;
 }
