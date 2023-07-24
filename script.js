@@ -3,6 +3,7 @@ const addBookBtn = document.querySelector('.addBookBtn');
 let library = document.querySelector('.library');
 let showForm = document.querySelector('.showForm');
 let form = document.querySelector('form');
+let display = document.querySelector('.display')
 let myLibrary = [];
 let book = {};
 let serial = 0;
@@ -41,6 +42,7 @@ function addBookToLibrary(e){
 function displayBook() {
 
     form.classList.toggle('hidden');
+    display.classList.toggle('filter');
 
     //Create the structure to display the book
     let divCard = document.createElement('div');
@@ -82,10 +84,10 @@ function displayBook() {
     library.appendChild(divCard);  
 
     //fill the textContent of the book to display
-    divCard.children[0].firstElementChild.textContent = "Title: ";
-    divCard.children[1].firstElementChild.textContent = "Author: ";
-    divCard.children[2].firstElementChild.textContent = "Number of Pages: ";
-    divCard.children[3].firstElementChild.textContent = "Did you read it?: ";
+    divCard.children[0].firstElementChild.textContent = "Title:";
+    divCard.children[1].firstElementChild.textContent = "Author:";
+    divCard.children[2].firstElementChild.textContent = "Pages:";
+    divCard.children[3].firstElementChild.textContent = "READ?";
 
     divCard.children[0].lastElementChild.textContent = book.title;
     divCard.children[1].lastElementChild.textContent = book.author;
@@ -154,4 +156,5 @@ addBookBtn.addEventListener('click', displayBook);
 //event to display the form
 showForm.addEventListener('click', () => {
     form.classList.toggle('hidden');
+    display.classList.toggle('filter');
 })

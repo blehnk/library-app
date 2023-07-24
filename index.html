@@ -8,7 +8,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <button class="showForm">Add Books</button>
+    <h1 class="heading">LIBRARY MANAGEMENT!</h1>
     <form action="" class="hidden">
         <div class="form-row">
             <label for="title">Title</label>
@@ -26,8 +26,9 @@
     </form>
 
     <div class="display">
+        <button class="showForm">Add Books</button>
         <div class="library">
-            <div class="bookCard">
+            <div class="bookCard read">
                 <div class="block">
                     <span>Title:</span>
                     <span>G.O.T</span>
@@ -37,12 +38,12 @@
                     <span>George R.R Martin</span>
                 </div>
                 <div class="block">
-                    <span>Number of Pages:</span>
+                    <span>Pages:</span>
                     <span>800</span>
                 </div>
-                <div class="block">
-                    <span>Did you read it?:</span>
-                    <span>Yes!</span>
+                <div class="specialBlock">
+                    <span>READ?</span>
+                    <button class="readStatus">Yes!</button>
                 </div>
                 <button class="remove">Remove Book</button>
             </div>
@@ -57,12 +58,12 @@
                     <span>J.K Rowling</span>
                 </div>
                 <div class="block">
-                    <span>Number of Pages:</span>
+                    <span>Pages:</span>
                     <span>674</span>
                 </div>
-                <div class="block">
-                    <span>Did you read it?:</span>
-                    <span>No</span>
+                <div class="specialBlock">
+                    <span>READ?</span>
+                    <button class="readStatus">No</button>
                 </div>
                 <button class="remove">Remove Book</button>
             </div>

@@ -4,33 +4,47 @@
     box-sizing: border-box;
 }
 
+body {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+    width: 100vw;
+    justify-items: center;
+    align-items: center;
+}
+
 .library {
     width: 700px;
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 250px;
+    flex: 1;
 }
 
 .bookCard {
+    position: relative;
     display: flex;
     flex-direction: column;
+    gap: 20px;
+
     border: 1px solid black;
     border-radius: 10px;
     background-color: #e2e8f0;
-
-    padding: 20px;
+    padding: 30px 20px;
 }
 
-.bookCard div {
+.bookCard .block {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: end;
+    grid-template-columns: 1fr 4fr;
+    justify-items: start;
     gap: 20px;
 }
 
-.bookCard div span:last-child {
+/* .bookCard div span:last-child {
     justify-self: start;
-}
+} */
 
 .block span:first-child {
     font-weight: 700;
@@ -38,4 +52,83 @@
 
 .hidden{
     display: none;
+}
+
+form {
+    position: absolute;
+    z-index: 1;
+
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    width: 300px;
+    padding: 50px 20px;
+    gap: 20px;
+
+    background-color: #f4f4f5;
+    border-radius: 10px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+}
+
+form .addBookBtn, .remove, .showForm {
+    width: 50%;
+    padding: 5px 10px;
+}
+
+.display {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    gap: 20px;
+}
+
+.filter {
+    filter: brightness(50%) blur(1px);
+}
+
+.showForm {
+    height: 30px;
+    width: auto
+}
+
+.remove {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.readStatus {
+    width: 80px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.specialBlock {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.library .read {
+    background-color: #bef264;
+}
+
+form input {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.heading {
+    padding-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
 }
