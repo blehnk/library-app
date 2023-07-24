@@ -5,7 +5,7 @@ let myLibrary = [];
 let book = {};
 let serial = 0;
 let index;
-let removeBookBtn = document.querySelectorAll('.remove');
+let readValue = "yes";
 
 //constructor function
 function Book(title, author, pages, read) {
@@ -29,7 +29,6 @@ function addBookToLibrary(e){
         book.title = document.querySelector("input[id='title']").value;
         book.author = document.querySelector("input[id='author']").value;
         book.pages = document.querySelector("input[id='pages']").value;
-        book.read = document.querySelector("input[id='read']").value; 
         book.serial = serial;
 
         serial++;
@@ -44,11 +43,18 @@ function displayBook() {
     divCard.classList.add("bookCard");
     divCard.dataset.index = index;
 
+    //create remove button
     let removeBtn = document.createElement('button');
-    removeBtn.classList.add("remove");
+    removeBtn.classList.add("remove", "btn");
     removeBtn.textContent = "Remove Book";
 
-    for(let i = 0; i < 4; i++){
+    //create read button
+    let readBtn = document.createElement('button');
+    readBtn.classList.add("readStatus", "btn");
+    readBtn.textContent = "Set Status";
+    
+
+    for(let i = 0; i < 3; i++){
         let divBlock = document.createElement('div');
         divBlock.classList.add("block");
        
@@ -58,6 +64,15 @@ function displayBook() {
 
         divCard.appendChild(divBlock);
     }
+
+    let specialBlock = document.createElement('div');
+    specialBlock.appendChild(document.createElement('span'));
+    specialBlock.appendChild(readBtn);
+    specialBlock.classList.add("specialBlock");
+
+
+    divCard.appendChild(specialBlock);
+
     divCard.appendChild(removeBtn);
 
     library.appendChild(divCard);  
@@ -71,28 +86,56 @@ function displayBook() {
     divCard.children[0].lastElementChild.textContent = book.title;
     divCard.children[1].lastElementChild.textContent = book.author;
     divCard.children[2].lastElementChild.textContent = book.pages;
-    divCard.children[3].lastElementChild.textContent = book.read;
 
 
     //event to remove books
     removeBtn.addEventListener('click', removeBook);
+
+    //event to change read status
+    readBtn.addEventListener('click', readStatus);   
 }
 
 
 //function to remove a book from the page
 function removeBook(e) {
     let bookIndex;
+
     for(let book of myLibrary){
+
         if(book.serial == e.target.parentElement.dataset.index){
-            console.log(book.serial);
             bookIndex = myLibrary.indexOf(book);
         }
     }
-    console.log(bookIndex);
+
     e.target.parentElement.style.display = "none";
     myLibrary.splice(bookIndex, 1);
 }
 
+//function to toggle read status
+function readStatus(e) {
+    let bookIndex;
+
+    for(let book of myLibrary){
+
+        if(book.serial == e.target.parentElement.parentElement.dataset.index){
+            bookIndex = myLibrary.indexOf(book);
+        }
+    }
+    e.target.previousSibling.classList.toggle("true");
+
+    if(e.target.previousSibling.classList.contains(true)){
+        myLibrary[bookIndex].read = "true";
+        e.target.textContent = "Yes!";
+
+        e.target.parentElement.parentElement.classList.toggle("read");
+    } 
+    else {
+        myLibrary[bookIndex].read = "false";
+        e.target.textContent = "No";
+
+        e.target.parentElement.parentElement.classList.toggle("read");
+    }
+}
 
 
 //------------------EVENTS-----------------//
