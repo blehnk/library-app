@@ -1,6 +1,8 @@
 //---------INITIALIZATION----------//
 const addBookBtn = document.querySelector('.addBookBtn');
 let library = document.querySelector('.library');
+let showForm = document.querySelector('.showForm');
+let form = document.querySelector('form');
 let myLibrary = [];
 let book = {};
 let serial = 0;
@@ -37,6 +39,8 @@ function addBookToLibrary(e){
 
 //Display the new books on the website
 function displayBook() {
+
+    form.classList.toggle('hidden');
 
     //Create the structure to display the book
     let divCard = document.createElement('div');
@@ -129,6 +133,7 @@ function readStatus(e) {
 
         e.target.parentElement.parentElement.classList.toggle("read");
     } 
+    
     else {
         myLibrary[bookIndex].read = "false";
         e.target.textContent = "No";
@@ -145,3 +150,8 @@ addBookBtn.addEventListener('click', addBookToLibrary);
 
 //event to display books
 addBookBtn.addEventListener('click', displayBook);
+
+//event to display the form
+showForm.addEventListener('click', () => {
+    form.classList.toggle('hidden');
+})

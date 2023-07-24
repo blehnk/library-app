@@ -35,3 +35,7 @@
 .block span:first-child {
     font-weight: 700;
 }
+
+.hidden{
+    display: none;
+}
