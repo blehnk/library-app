@@ -2,6 +2,7 @@
 let library = document.querySelector('.library');
 let myLibrary = [];
 let book = {};
+//let removeBtn = document.querySelector('.remove');
 
 //constructor function
 function Book(title, author, pages, read) {
@@ -35,6 +36,10 @@ function displayBook() {
     let divCard = document.createElement('div');
     divCard.classList.add("bookCard");
 
+    let removeBtn = document.createElement('button');
+    removeBtn.classList.add("remove");
+    removeBtn.textContent = "Remove Book";
+
     for(let i = 0; i < 4; i++){
         let divBlock = document.createElement('div');
         divBlock.classList.add("block");
@@ -45,6 +50,7 @@ function displayBook() {
 
         divCard.appendChild(divBlock);
     }
+    divCard.appendChild(removeBtn);
 
     library.appendChild(divCard);  
 
