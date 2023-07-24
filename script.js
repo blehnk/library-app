@@ -1,8 +1,11 @@
 //---------INITIALIZATION----------//
+const addBookBtn = document.querySelector('.addBookBtn');
 let library = document.querySelector('.library');
 let myLibrary = [];
 let book = {};
-//let removeBtn = document.querySelector('.remove');
+let serial = 0;
+let index;
+let removeBookBtn = document.querySelectorAll('.remove');
 
 //constructor function
 function Book(title, author, pages, read) {
@@ -27,6 +30,10 @@ function addBookToLibrary(e){
         book.author = document.querySelector("input[id='author']").value;
         book.pages = document.querySelector("input[id='pages']").value;
         book.read = document.querySelector("input[id='read']").value; 
+        book.serial = serial;
+
+        serial++;
+        index =  book.serial;
 }
 
 //Display the new books on the website
@@ -35,6 +42,7 @@ function displayBook() {
     //Create the structure to display the book
     let divCard = document.createElement('div');
     divCard.classList.add("bookCard");
+    divCard.dataset.index = index;
 
     let removeBtn = document.createElement('button');
     removeBtn.classList.add("remove");
@@ -64,13 +72,32 @@ function displayBook() {
     divCard.children[1].lastElementChild.textContent = book.author;
     divCard.children[2].lastElementChild.textContent = book.pages;
     divCard.children[3].lastElementChild.textContent = book.read;
+
+
+    //event to remove books
+    removeBtn.addEventListener('click', removeBook);
 }
+
+
+//function to remove a book from the page
+function removeBook(e) {
+    let bookIndex;
+    for(let book of myLibrary){
+        if(book.serial == e.target.parentElement.dataset.index){
+            console.log(book.serial);
+            bookIndex = myLibrary.indexOf(book);
+        }
+    }
+    console.log(bookIndex);
+    e.target.parentElement.style.display = "none";
+    myLibrary.splice(bookIndex, 1);
+}
+
 
 
 //------------------EVENTS-----------------//
 
 //add new books to myLibrary after clicking the submit button
-const addBookBtn = document.querySelector('.addBookBtn');
 addBookBtn.addEventListener('click', addBookToLibrary);
 
 //event to display books
