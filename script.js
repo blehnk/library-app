@@ -11,11 +11,13 @@ let index;
 let readValue = "yes";
 
 //constructor function
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book{
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 
@@ -26,7 +28,8 @@ function addBookToLibrary(e){
 
         e.preventDefault();
 
-        book = Object.create(Book);
+        //book = Object.create(Book);
+        book = new Book();
         myLibrary.push(book);
 
         book.title = document.querySelector("input[id='title']").value;
